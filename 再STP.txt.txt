@@ -1,0 +1,52 @@
+各スイッチのブリッジプライオリティは以下とします。
+
+　・Switch1：32769
+　・Switch2：20481
+　・Switch3：4097
+　・Switch4：8193
+
+問１ルートブリッジに該当するスイッチは
+
+プライオリティは、
+Switch1＞2＞4＞3より、　スイッチ３
+
+問２全てのポートの役割を答えてください。
+また、各回答の理由を併せて明記してください。
+
+Switch3はルートブリッジのため、
+Switch3　E0/1とE0//2は指定ポート
+
+Switch1→Switch3　パスコスト100
+Switch1→Switch2→Switch4→Switch3　パスコスト219
+
+Switch2→Switch1→Switch3　パスコスト119
+Switch2→Switch4→Switch3　パスコスト200
+
+Switch4→Switch3　パスコスト100
+Switch4→Switch2→Switch1→Switch3　パスコスト219
+
+上記より、
+Switch1　F0/2側がルートポート
+Switch2　F0/1側がルートポート
+Switch4　E0/2側がルートポート
+
+ルートポートの対向ポートは必ず指定ポートになるため
+Switch1　F0/1側が指定ポート
+
+Switch2とSwitch4はプライオリティが2＞4のため、
+Switch4　E0/1側が指定ポートとなる。
+
+残ったSwitch2のF0/2側がブロッキングポートとなる。
+
+Switch1　F0/1　DP
+Switch1　F0/2　RP
+Switch2　F0/1　RP
+Switch2　F0/2　BP　
+Switch3　E0/1　DP
+Switch3　E0/2　DP
+Switch4　E0/1　DP
+Switch4　E0/2　RP
+
+
+
+
